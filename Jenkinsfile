@@ -1,5 +1,13 @@
 pipeline {
-    agent any
+  agent {
+    docker {
+      image 'vishant07/terru:v1'
+    }
+  }
+
+  options {
+      ansiColor('xterm')
+  }
     parameters {
     choice(
         name: 'aws_region',
@@ -7,14 +15,6 @@ pipeline {
         description: 'interesting stuff' )
     }
     stages {
-        stage ('install terraform') {
-            steps {
-                sh "sudo apt-get -y --force-yes install wget vim git unzip gettext"
-                sh "cd /usr/local/terraform"
-                sh "wget https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip && unzip terraform_0.10.7_linux_amd64.zip"
-                sh "terraform --version"
-            }
-        }
         stage ('initialize terraform plan') {
             environment {
             AWS_DEFAULT_REGION = "${aws_region}"

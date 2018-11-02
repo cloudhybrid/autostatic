@@ -5,9 +5,6 @@ pipeline {
     }
   }
 
-  options {
-      ansiColor('xterm')
-  }
     parameters {
     choice(
         name: 'aws_region',

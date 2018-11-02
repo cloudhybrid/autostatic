@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh "apt-get update"
                 sh "mkdir -p /usr/local/terraform"
-                sh "cd /usr/local/terraform; wget https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip && unzip terraform_0.10.7_linux_amd64.zip"
+                sh "cd /usr/local/terraform; wget https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip; unzip terraform_0.10.7_linux_amd64.zip; mv terraform /usr/local/bin/"
                 sh "terraform --version"
             }
         }

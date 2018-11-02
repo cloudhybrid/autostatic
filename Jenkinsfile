@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('build terraform code') {
             steps {
-                cat /etc/lsb-release
+                sh "cat /etc/lsb-release"
             }
         }
     }

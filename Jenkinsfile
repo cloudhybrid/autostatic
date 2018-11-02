@@ -9,8 +9,7 @@ pipeline {
     stages {
         stage ('install terraform') {
             steps {
-                sh "cd /usr/local/terraform"
-                sh "wget https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip && unzip terraform_0.10.7_linux_amd64.zip"
+                sh "cd /usr/local/terraform ; wget https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip && unzip terraform_0.10.7_linux_amd64.zip"
                 sh "terraform --version"
             }
         }
